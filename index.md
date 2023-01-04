@@ -6,9 +6,8 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 #
 layout: home
+title: Home
 ---
-
-# Home
 
 ## Hi there, I'm Riya Bisht 👋 
 
