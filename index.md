@@ -8,6 +8,8 @@
 layout: home
 ---
 
+# Home
+
 ## Hi there, I'm Riya Bisht 👋 
 
 - I'm a B.Tech CSE Undergrad
