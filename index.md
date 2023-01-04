@@ -1,10 +1,4 @@
 ---
-#
-# By default, content added below the "---" mark will appear in the home page
-# between the top bar and the list of recent posts.
-# To change the home page layout, edit the _layouts/home.html file.
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-#
 layout: home
 title: Home
 ---
@@ -19,13 +13,8 @@ title: Home
 
 ## Technologies I have worked with
 
-- **Languages:**
-  `C`, `C++`, `Javascript`, `Python`, `Julia`, `Scala`
-- **Clouds:**
-  `Amazon Web Services`, `Google Cloud Platform`
-- **Data stores:**
-  `MySQL`, `neo4j`
-- **Version Control:**
-  `git`
-- **Operating Systems:**
-  `Ubuntu`, `Windows`
+- Languages: `C`, `C++`, `Javascript`, `Python`, `Julia`, `Scala`
+- Clouds: `Amazon Web Services`, `Google Cloud Platform`
+- Data stores: `MySQL`, `neo4j`
+- Version Control: `git`
+- Operating Systems: `Ubuntu`, `Windows`
