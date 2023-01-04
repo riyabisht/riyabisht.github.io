@@ -7,7 +7,7 @@ title: Home 🏡
 
 - I'm a B.Tech CSE Undergrad
 - 🌱 Currently a 4th year undergrad 👩‍🎓
-- 🥅 2022 Goal: Learn about UX/XI
+- 🥅 2023 Goal: Learn about UX/XI
 - ⚡ Hobbies: I love to draw and play table-tennis 🏓
 - 😻 Love to make new friends
 
@@ -18,3 +18,5 @@ title: Home 🏡
 - Data stores: `MySQL`, `neo4j`
 - Version Control: `git`
 - Operating Systems: `Ubuntu`, `Windows`
+
+---
