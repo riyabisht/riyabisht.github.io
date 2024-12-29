@@ -1,6 +1,5 @@
 ---
 layout: home
-title: Home 🏡
 ---
 
 ## Hi there, I'm Riya Bisht 👋 
