@@ -5,18 +5,10 @@ title: Home 🏡
 
 ## Hi there, I'm Riya Bisht 👋 
 
-- I'm a B.Tech CSE Undergrad
-- 🌱 Currently a 4th year undergrad 👩‍🎓
-- 🥅 2023 Goal: Learn about UX/XI
-- ⚡ Hobbies: I love to draw and play table-tennis 🏓
-- 😻 Love to make new friends
+I work as a Software Development Engineer at Amazon, working with an AWS team to develop solutions for financial planning and infrastructure purchase management for building data centers. This involves budget creation, approval workflows, and spending tracking. 
 
-## Technologies I have worked with
+## Technologies I have worked with 🤹
 
-- Languages: `C`, `C++`, `Javascript`, `Python`, `Julia`, `Scala`
-- Clouds: `Amazon Web Services`, `Google Cloud Platform`
-- Data stores: `MySQL`, `neo4j`
-- Version Control: `git`
-- Operating Systems: `Ubuntu`, `Windows`
+`C` `C++` `Java` `ruby` `Amazon Web Services` `MySQL` `neo4j` `git` `Ubuntu` `Windows`
 
 ---
