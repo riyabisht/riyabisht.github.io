@@ -1,0 +1,55 @@
+- id: digit-recognition
+  number: "01"
+  title: Handwritten digit recognition
+  type: Machine learning
+  summary: A CNN trained on MNIST, with a web app to try out handwritten digit predictions.
+  description: Trained a convolutional neural network on the MNIST dataset to identify handwritten digits, then built a web app to interact with the model.
+  outcome: The model reached 98.63% accuracy on the MNIST dataset.
+  technologies:
+    - Python
+    - Pandas
+    - TensorFlow
+    - Keras
+    - NumPy
+    - Matplotlib
+  github: https://github.com/riyabisht/HandwrittenDigit_Recognition
+  featured: true
+  visual: digit
+  visual_caption: "01 / NEURAL NETWORK"
+
+- id: recipe-recommender
+  number: "02"
+  title: Recipe recommender
+  type: Web application
+  summary: A graph-powered way to discover dishes from the ingredients you already have.
+  description: A web app that helps people find dishes based on the ingredients they have. Neo4j models the relationships between ingredients and recipes.
+  technologies:
+    - Neo4j
+    - Node.js
+    - Express
+    - W3.CSS
+  github: https://github.com/riyabisht/Recipe-recommender
+  featured: true
+  visual: recipe
+  visual_caption: "02 / INGREDIENTS → IDEAS"
+
+- id: pulmonary-disease-detection
+  number: "03"
+  title: Pulmonary disease detection
+  type: Computer vision
+  description: Explored feature extraction and broad disease classification using lung X-rays and CT scans. The project focused on identifying and grouping potential pulmonary diseases from medical images.
+  technologies:
+    - TensorFlow
+    - scikit-learn
+    - OpenCV
+
+- id: child-day-care-system
+  number: "04"
+  title: Child day care system
+  type: Web application
+  description: A web-based enrollment system designed to help parents register children for daycare without waiting in a queue. An admin dashboard summarizes babysitters, services, and enrollment status.
+  technologies:
+    - PHP
+    - HTML
+    - CSS
+    - MySQL

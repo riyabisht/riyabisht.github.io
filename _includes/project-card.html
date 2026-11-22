@@ -1,0 +1,17 @@
+<a class="project-card project-card-{{ include.project.visual }}" href="{{ '/projects/' | relative_url }}#{{ include.project.id | escape }}">
+  <div class="project-visual {{ include.project.visual }}-visual" aria-hidden="true">
+    {% if include.project.visual == "digit" %}
+      <span class="digit digit-one">2</span><span class="digit digit-two">8</span><span class="digit digit-three">5</span>
+    {% elsif include.project.visual == "recipe" %}
+      <span class="recipe-orbit orbit-one"></span><span class="recipe-orbit orbit-two"></span>
+      <span class="recipe-node node-center">R</span><span class="recipe-node node-top">+</span><span class="recipe-node node-left">+</span><span class="recipe-node node-right">+</span>
+    {% endif %}
+    <span class="visual-caption">{{ include.project.visual_caption | escape }}</span>
+  </div>
+  <div class="project-card-copy">
+    <p class="project-type">{{ include.project.type | escape }} <span>{{ include.project.number | escape }}</span></p>
+    <h3>{{ include.project.title | escape }}</h3>
+    <p>{{ include.project.summary | escape }}</p>
+    <span class="card-link">View project <span aria-hidden="true">↗</span></span>
+  </div>
+</a>
