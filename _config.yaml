@@ -1,6 +1,6 @@
 title: Riya Bisht
 url: "https://riyabisht.github.io"
-baseurl: "/riya-bisht-portfolio"
+baseurl: ""
 author:
   name: Riya Bisht
   email:  riyabishtformal@gmail.com
@@ -25,8 +25,15 @@ minima:
 header_pages:
 - index.md
 - projects.md
+- blog.md
 - about.md
 
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
 
 # Build settings
 theme: minima

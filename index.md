@@ -28,32 +28,10 @@ description: Riya Bisht is a software engineer at Amazon who builds thoughtful s
     </div>
 
     <div class="project-grid">
-      <a class="project-card project-card-lime" href="{{ '/projects/#digit-recognition' | relative_url }}">
-        <div class="project-visual digit-visual" aria-hidden="true">
-          <span class="digit digit-one">2</span><span class="digit digit-two">8</span><span class="digit digit-three">5</span>
-          <span class="visual-caption">01 / NEURAL NETWORK</span>
-        </div>
-        <div class="project-card-copy">
-          <p class="project-type">Machine learning <span>01</span></p>
-          <h3>Handwritten digit recognition</h3>
-          <p>A CNN trained on MNIST, with a web app to try out handwritten digit predictions.</p>
-          <span class="card-link">View project <span aria-hidden="true">↗</span></span>
-        </div>
-      </a>
-
-      <a class="project-card project-card-peach" href="{{ '/projects/#recipe-recommender' | relative_url }}">
-        <div class="project-visual recipe-visual" aria-hidden="true">
-          <span class="recipe-orbit orbit-one"></span><span class="recipe-orbit orbit-two"></span>
-          <span class="recipe-node node-center">R</span><span class="recipe-node node-top">+</span><span class="recipe-node node-left">+</span><span class="recipe-node node-right">+</span>
-          <span class="visual-caption">02 / INGREDIENTS → IDEAS</span>
-        </div>
-        <div class="project-card-copy">
-          <p class="project-type">Web application <span>02</span></p>
-          <h3>Recipe recommender</h3>
-          <p>A graph-powered way to discover dishes from the ingredients you already have.</p>
-          <span class="card-link">View project <span aria-hidden="true">↗</span></span>
-        </div>
-      </a>
+      {% assign featured_projects = site.data.projects | where: "featured", true %}
+      {% for project in featured_projects %}
+        {% include project-card.html project=project %}
+      {% endfor %}
     </div>
   </section>
 

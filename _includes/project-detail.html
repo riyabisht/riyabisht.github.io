@@ -1,0 +1,16 @@
+<article class="detail-project" id="{{ include.project.id | escape }}">
+  <p class="project-type">{{ include.project.type | escape }} <span>{{ include.project.number | escape }}</span></p>
+  <h2>{{ include.project.title | escape }}</h2>
+  <p>{{ include.project.description | escape }}</p>
+  {% if include.project.outcome %}
+    <p class="project-outcome">{{ include.project.outcome | escape }}</p>
+  {% endif %}
+  <ul class="tech-list" aria-label="Technologies used">
+    {% for technology in include.project.technologies %}
+      <li>{{ technology | escape }}</li>
+    {% endfor %}
+  </ul>
+  {% if include.project.github %}
+    <a class="text-link" href="{{ include.project.github | escape }}" target="_blank" rel="noopener noreferrer">View source on GitHub <span aria-hidden="true">↗</span></a>
+  {% endif %}
+</article>

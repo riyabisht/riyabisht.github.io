@@ -669,6 +669,120 @@ input:focus-visible + .menu-toggle {
   }
 }
 
+.blog-page {
+  padding-top: 74px;
+  padding-bottom: 100px;
+
+  > .eyebrow {
+    margin-bottom: 12px;
+  }
+}
+
+.blog-title {
+  margin: 0 0 34px;
+  font-family: $serif;
+  font-size: clamp(42px, 6vw, 64px);
+  font-weight: 400;
+  letter-spacing: -.06em;
+  line-height: 1.1;
+}
+
+.blog-entry {
+  max-width: 790px;
+  padding: 28px 0 32px;
+  border-top: 1px solid $line;
+
+  h2 {
+    margin: 7px 0 8px;
+    font-family: $serif;
+    font-size: clamp(25px, 3.5vw, 34px);
+    font-weight: 400;
+    letter-spacing: -.04em;
+    line-height: 1.2;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: $lime;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 4px;
+      }
+    }
+  }
+
+  > p:not(.blog-date) {
+    max-width: 650px;
+    margin: 0 0 15px;
+    color: $muted;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .text-link {
+    font-size: 12px;
+  }
+}
+
+.blog-date {
+  margin: 0;
+  color: $muted;
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+
+.post {
+  max-width: 790px;
+  margin: 0 auto;
+  padding-top: 74px;
+  padding-bottom: 100px;
+
+  .post-header {
+    margin-bottom: 32px;
+  }
+
+  .eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .post-title {
+    margin: 0 0 12px;
+    font-family: $serif;
+    font-size: clamp(38px, 6vw, 64px);
+    font-weight: 400;
+    letter-spacing: -.06em;
+    line-height: 1.1;
+  }
+
+  .post-meta {
+    margin: 0;
+    color: $muted;
+    font-size: 12px;
+  }
+
+  .post-content {
+    color: $muted;
+    font-size: 15px;
+    line-height: 1.9;
+
+    h2,
+    h3 {
+      margin-top: 1.8em;
+      color: $ink;
+      font-family: $serif;
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+
+    a {
+      color: $ink;
+      text-decoration-color: #9bab70;
+      text-underline-offset: 3px;
+    }
+  }
+}
+
 .about-lede {
   max-width: 770px;
   margin: 0 0 27px;
@@ -854,6 +968,12 @@ input:focus-visible + .menu-toggle {
   }
 
   .detail-page {
+    padding-top: 55px;
+    padding-bottom: 75px;
+  }
+
+  .blog-page,
+  .post {
     padding-top: 55px;
     padding-bottom: 75px;
   }
