@@ -1,36 +1,75 @@
-$paper: var(--paper);
-$ink: var(--ink);
-$muted: var(--muted);
-$line: var(--line);
-$lime: var(--lime);
+$paper: var(--surface-page);
+$card: var(--surface-card);
+$ink: var(--text-primary);
+$muted: var(--text-muted);
+$subtle: var(--text-subtle);
+$line: var(--border-subtle);
+$lime: var(--highlight-background);
+$highlight-foreground: var(--highlight-foreground);
+$link-color: var(--link-color);
+$button-background: var(--button-background);
+$button-foreground: var(--button-foreground);
+$contact-foreground: var(--contact-foreground);
 $serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
 
 :root {
   color-scheme: light;
-  --paper: #f7f6f1;
-  --ink: #1d211c;
-  --muted: #6b7066;
-  --line: #dedfd6;
-  --lime: #d7f36a;
-  --card: #fffefa;
+  --surface-page: #f7f6f1;
+  --surface-card: #fffefa;
+  --text-primary: #1d211c;
+  --text-muted: #6b7066;
+  --text-subtle: #92958b;
+  --border-subtle: #dedfd6;
+  --border-decorative: #b1b2a9;
+  --highlight-background: #d7f36a;
+  --highlight-foreground: #1d211c;
+  --accent-foreground: #829e38;
+  --link-color: #1d211c;
+  --button-background: #d7f36a;
+  --button-foreground: #1d211c;
+  --button-hover-background: #e3ff85;
+  --contact-foreground: #f7f6f1;
   --footer-background: #1d211c;
   --footer-text: #b6baae;
-  --subtle: #92958b;
-  --divider: #b1b2a9;
+  --visual-digit-background: #e7efc9;
+  --visual-digit-ring: rgba(64, 81, 35, .15);
+  --visual-digit-surface: rgba(247, 246, 241, .82);
+  --visual-digit-border: rgba(29, 33, 28, .14);
+  --visual-recipe-background: #f2e5d7;
+  --visual-recipe-ring: rgba(99, 68, 43, .22);
+  --visual-recipe-surface: #fffaf3;
+  --visual-recipe-foreground: #694d36;
+  --visual-caption: rgba(29, 33, 28, .52);
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #171a16;
-  --ink: #e8eadf;
-  --muted: #b2b8a9;
-  --line: #373d33;
-  --lime: #d7f36a;
-  --card: #20241e;
+  --surface-page: #171a16;
+  --surface-card: #20241e;
+  --text-primary: #e8eadf;
+  --text-muted: #c0c6b7;
+  --text-subtle: #b2baa7;
+  --border-subtle: #454d3f;
+  --border-decorative: #747d6d;
+  --highlight-background: #d7f36a;
+  --highlight-foreground: #202512;
+  --accent-foreground: #b6d65f;
+  --link-color: #d7f36a;
+  --button-background: #d7f36a;
+  --button-foreground: #202512;
+  --button-hover-background: #e3ff85;
+  --contact-foreground: #e8eadf;
   --footer-background: #10120f;
-  --footer-text: #b6baae;
-  --subtle: #a0a698;
-  --divider: #747d6d;
+  --footer-text: #c4cbb9;
+  --visual-digit-background: #29331f;
+  --visual-digit-ring: rgba(220, 233, 196, .2);
+  --visual-digit-surface: rgba(23, 26, 22, .88);
+  --visual-digit-border: rgba(220, 233, 196, .28);
+  --visual-recipe-background: #342d26;
+  --visual-recipe-ring: rgba(237, 220, 194, .28);
+  --visual-recipe-surface: #292721;
+  --visual-recipe-foreground: #f0dfc8;
+  --visual-caption: rgba(240, 239, 225, .76);
 }
 
 :root[data-theme="light"] {
@@ -291,7 +330,7 @@ input:focus-visible + .menu-toggle {
 
 .eyebrow-divider {
   padding: 0 8px;
-  color: var(--divider);
+  color: var(--border-decorative);
 }
 
 .hero h1,
@@ -306,6 +345,7 @@ input:focus-visible + .menu-toggle {
 
 .highlight {
   background: linear-gradient(transparent 62%, $lime 62%, $lime 91%, transparent 91%);
+  color: $highlight-foreground;
 }
 
 .hero-bottom {
@@ -329,8 +369,8 @@ input:focus-visible + .menu-toggle {
   align-items: center;
   gap: 12px;
   padding-bottom: 4px;
-  border-bottom: 1px solid $ink;
-  color: $ink;
+  border-bottom: 1px solid $link-color;
+  color: $link-color;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -351,7 +391,7 @@ input:focus-visible + .menu-toggle {
   bottom: 76px;
   display: flex;
   flex-direction: column;
-  color: var(--subtle);
+  color: $subtle;
   font-family: $serif;
   font-size: 13px;
   font-style: italic;
@@ -383,7 +423,7 @@ input:focus-visible + .menu-toggle {
 }
 
 .accent-period {
-  color: #829e38;
+  color: var(--accent-foreground);
 }
 
 .project-grid {
@@ -397,7 +437,7 @@ input:focus-visible + .menu-toggle {
   overflow: hidden;
   border: 1px solid $line;
   border-radius: 4px;
-  background: var(--card);
+  background: $card;
   text-decoration: none;
   transition: transform .25s ease, box-shadow .25s ease;
 
@@ -416,14 +456,14 @@ input:focus-visible + .menu-toggle {
 }
 
 .digit-visual {
-  background: #e7efc9;
+  background: var(--visual-digit-background);
 
   &::before,
   &::after {
     position: absolute;
     width: 180px;
     height: 180px;
-    border: 1px solid rgba(64, 81, 35, .15);
+    border: 1px solid var(--visual-digit-ring);
     border-radius: 50%;
     content: "";
   }
@@ -441,9 +481,9 @@ input:focus-visible + .menu-toggle {
   width: 70px;
   height: 70px;
   place-items: center;
-  border: 1px solid rgba(29, 33, 28, .14);
+  border: 1px solid var(--visual-digit-border);
   border-radius: 50%;
-  background: rgba(247, 246, 241, .82);
+  background: var(--visual-digit-surface);
   color: $ink;
   font-family: $serif;
   font-size: 38px;
@@ -464,14 +504,14 @@ input:focus-visible + .menu-toggle {
 }
 
 .recipe-visual {
-  background: #f2e5d7;
+  background: var(--visual-recipe-background);
 }
 
 .recipe-orbit {
   position: absolute;
   width: 205px;
   height: 84px;
-  border: 1px solid rgba(99, 68, 43, .22);
+  border: 1px solid var(--visual-recipe-ring);
   border-radius: 50%;
 }
 
@@ -490,10 +530,10 @@ input:focus-visible + .menu-toggle {
   width: 38px;
   height: 38px;
   place-items: center;
-  border: 1px solid rgba(99, 68, 43, .22);
+  border: 1px solid var(--visual-recipe-ring);
   border-radius: 50%;
-  background: #fffaf3;
-  color: #694d36;
+  background: var(--visual-recipe-surface);
+  color: var(--visual-recipe-foreground);
   font-family: $serif;
   font-size: 20px;
 }
@@ -502,7 +542,7 @@ input:focus-visible + .menu-toggle {
   width: 54px;
   height: 54px;
   background: $ink;
-  color: #fffaf3;
+  color: var(--visual-recipe-surface);
   font-size: 25px;
 }
 
@@ -522,7 +562,7 @@ input:focus-visible + .menu-toggle {
   position: absolute;
   bottom: 15px;
   left: 18px;
-  color: rgba(29, 33, 28, .52);
+  color: var(--visual-caption);
   font-size: 9px;
   font-weight: 650;
   letter-spacing: .12em;
@@ -597,7 +637,7 @@ input:focus-visible + .menu-toggle {
   isolation: isolate;
   padding-top: 72px;
   padding-bottom: 83px;
-  color: $paper;
+  color: $contact-foreground;
 
   &::before {
     position: absolute;
@@ -635,8 +675,8 @@ input:focus-visible + .menu-toggle {
   margin-bottom: 9px;
   padding: 14px 18px;
   border-radius: 3px;
-  background: $lime;
-  color: $ink;
+  background: $button-background;
+  color: $button-foreground;
   font-size: 13px;
   font-weight: 650;
   text-decoration: none;
@@ -645,7 +685,7 @@ input:focus-visible + .menu-toggle {
 
   &:hover {
     transform: translateY(-2px);
-    background: #e3ff85;
+    background: var(--button-hover-background);
   }
 }
 
