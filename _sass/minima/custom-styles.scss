@@ -348,6 +348,11 @@ input:focus-visible + .menu-toggle {
   color: $highlight-foreground;
 }
 
+:root[data-theme="dark"] .highlight {
+  background: none;
+  color: var(--highlight-background);
+}
+
 .hero-bottom {
   display: flex;
   align-items: flex-end;
