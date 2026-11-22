@@ -353,6 +353,11 @@ input:focus-visible + .menu-toggle {
   color: var(--highlight-background);
 }
 
+.contact-section .highlight {
+  background: none;
+  color: var(--highlight-background);
+}
+
 .hero-bottom {
   display: flex;
   align-items: flex-end;
