@@ -4,19 +4,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
     (() => {
-      let theme;
+      const root = document.documentElement;
+      const colorPreference = window.matchMedia("(prefers-color-scheme: dark)");
+      let mode = "system";
       try {
         const savedTheme = localStorage.getItem("riyabisht-theme");
-        if (savedTheme === "light" || savedTheme === "dark") {
-          theme = savedTheme;
+        if (savedTheme === "system" || savedTheme === "light" || savedTheme === "dark") {
+          mode = savedTheme;
         }
       } catch {
         // Storage can be unavailable in restricted browser contexts.
       }
 
-      theme ||= window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      document.documentElement.dataset.theme = theme;
-      document.documentElement.style.colorScheme = theme;
+      root.dataset.themeMode = mode;
+      const applyTheme = () => {
+        const selectedMode = root.dataset.themeMode;
+        const theme = selectedMode === "system"
+          ? (colorPreference.matches ? "dark" : "light")
+          : selectedMode;
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+      };
+
+      applyTheme();
+      const onColorPreferenceChange = () => {
+        if (root.dataset.themeMode === "system") {
+          applyTheme();
+        }
+      };
+      if (colorPreference.addEventListener) {
+        colorPreference.addEventListener("change", onColorPreferenceChange);
+      } else {
+        colorPreference.addListener(onColorPreferenceChange);
+      }
     })();
   </script>
   {%- seo -%}

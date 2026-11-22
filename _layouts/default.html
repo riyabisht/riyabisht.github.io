@@ -17,23 +17,70 @@
 
     <script>
       const themeToggle = document.getElementById("theme-toggle");
-      if (themeToggle) {
-        const currentTheme = document.documentElement.dataset.theme;
-        themeToggle.setAttribute("aria-pressed", String(currentTheme === "dark"));
-        themeToggle.textContent = currentTheme === "dark" ? "Dark theme on" : "Dark theme off";
+      const themeMenu = document.getElementById("theme-menu");
+      if (themeToggle && themeMenu) {
+        const root = document.documentElement;
+        const switcher = themeToggle.closest(".theme-switcher");
+        const themeOptions = Array.from(themeMenu.querySelectorAll("[data-theme-option]"));
+        const themeIcons = Array.from(themeToggle.querySelectorAll("[data-theme-icon]"));
 
+        const updateThemeControls = (mode) => {
+          themeToggle.setAttribute("aria-label", `Theme: ${mode[0].toUpperCase()}${mode.slice(1)}`);
+          themeIcons.forEach((icon) => {
+            icon.hidden = icon.dataset.themeIcon !== mode;
+          });
+          themeOptions.forEach((option) => {
+            option.setAttribute("aria-pressed", String(option.dataset.themeOption === mode));
+          });
+        };
+
+        const closeThemeMenu = (restoreFocus = false) => {
+          themeMenu.hidden = true;
+          themeToggle.setAttribute("aria-expanded", "false");
+          if (restoreFocus) {
+            themeToggle.focus();
+          }
+        };
+
+        updateThemeControls(root.dataset.themeMode || "system");
         themeToggle.addEventListener("click", () => {
-          const root = document.documentElement;
-          const theme = root.dataset.theme === "dark" ? "light" : "dark";
-          root.dataset.theme = theme;
-          root.style.colorScheme = theme;
-          themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
-          themeToggle.textContent = theme === "dark" ? "Dark theme on" : "Dark theme off";
+          const opening = themeMenu.hidden;
+          themeMenu.hidden = !opening;
+          themeToggle.setAttribute("aria-expanded", String(opening));
+          if (opening) {
+            const selectedOption = themeOptions.find((option) => option.getAttribute("aria-pressed") === "true");
+            selectedOption?.focus();
+          }
+        });
 
-          try {
-            localStorage.setItem("riyabisht-theme", theme);
-          } catch {
-            // The theme still works for this page when storage is unavailable.
+        themeOptions.forEach((option) => {
+          option.addEventListener("click", () => {
+            const mode = option.dataset.themeOption;
+            root.dataset.themeMode = mode;
+            const theme = mode === "system"
+              ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+              : mode;
+            root.dataset.theme = theme;
+            root.style.colorScheme = theme;
+            updateThemeControls(mode);
+            try {
+              localStorage.setItem("riyabisht-theme", mode);
+            } catch {
+              // The theme still works for this page when storage is unavailable.
+            }
+            closeThemeMenu(true);
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!switcher.contains(event.target)) {
+            closeThemeMenu();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && !themeMenu.hidden) {
+            closeThemeMenu(true);
           }
         });
       }

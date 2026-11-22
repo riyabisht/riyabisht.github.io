@@ -274,15 +274,21 @@ input:focus-visible + .menu-toggle {
   }
 }
 
+.theme-switcher {
+  position: relative;
+}
+
 .theme-toggle {
-  padding: 8px 10px;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
   border: 1px solid $line;
   border-radius: 3px;
   background: transparent;
   color: $muted;
   font: inherit;
-  font-size: 11px;
-  white-space: nowrap;
   cursor: pointer;
   transition: color .2s ease, border-color .2s ease;
 
@@ -290,6 +296,60 @@ input:focus-visible + .menu-toggle {
     border-color: $ink;
     color: $ink;
   }
+}
+
+.theme-icon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.theme-menu {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 130px;
+  padding: 5px;
+  border: 1px solid $line;
+  border-radius: 3px;
+  background: $paper;
+  box-shadow: 0 10px 24px rgba(29, 33, 28, .12);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.theme-option {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: $muted;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible,
+  &[aria-pressed="true"] {
+    background: rgba(130, 162, 46, .14);
+    color: $ink;
+  }
+}
+
+.theme-toggle:focus-visible,
+.theme-option:focus-visible {
+  outline: 2px solid $ink;
+  outline-offset: 2px;
 }
 
 .page-content {
@@ -1063,10 +1123,14 @@ input:focus-visible + .menu-toggle {
     padding: 10px 12px;
   }
 
-  .theme-toggle {
-    width: 100%;
+  .theme-switcher {
+    align-self: flex-start;
     margin-top: 5px;
-    text-align: left;
+  }
+
+  .theme-menu {
+    right: auto;
+    left: 0;
   }
 
   .hero {
