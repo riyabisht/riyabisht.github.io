@@ -1,9 +1,91 @@
-$paper: #f7f6f1;
-$ink: #1d211c;
-$muted: #6b7066;
-$line: #dedfd6;
-$lime: #d7f36a;
+$paper: var(--paper);
+$ink: var(--ink);
+$muted: var(--muted);
+$line: var(--line);
+$lime: var(--lime);
 $serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
+:root {
+  color-scheme: light;
+  --paper: #f7f6f1;
+  --ink: #1d211c;
+  --muted: #6b7066;
+  --line: #dedfd6;
+  --lime: #d7f36a;
+  --card: #fffefa;
+  --footer-background: #1d211c;
+  --footer-text: #b6baae;
+  --subtle: #92958b;
+  --divider: #b1b2a9;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #171a16;
+  --ink: #e8eadf;
+  --muted: #b2b8a9;
+  --line: #373d33;
+  --lime: #d7f36a;
+  --card: #20241e;
+  --footer-background: #10120f;
+  --footer-text: #b6baae;
+  --subtle: #a0a698;
+  --divider: #747d6d;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="light"] {
+  --minima-brand-color: #{$lm-brand-color};
+  --minima-brand-color-light: #{$lm-brand-color-light};
+  --minima-brand-color-dark: #{$lm-brand-color-dark};
+  --minima-site-title-color: #{$lm-site-title-color};
+  --minima-text-color: #{$lm-text-color};
+  --minima-background-color: #{$lm-background-color};
+  --minima-code-background-color: #{$lm-code-background-color};
+  --minima-link-base-color: #{$lm-link-base-color};
+  --minima-link-visited-color: #{$lm-link-visited-color};
+  --minima-link-hover-color: #{$lm-link-hover-color};
+  --minima-border-color-01: #{$lm-border-color-01};
+  --minima-border-color-02: #{$lm-border-color-02};
+  --minima-border-color-03: #{$lm-border-color-03};
+  --minima-table-text-color: #{$lm-table-text-color};
+  --minima-table-zebra-color: #{$lm-table-zebra-color};
+  --minima-table-header-bg-color: #{$lm-table-header-bg-color};
+  --minima-table-header-border: #{$lm-table-header-border};
+  --minima-table-border-color: #{$lm-table-border-color};
+}
+
+:root[data-theme="dark"] {
+  --minima-brand-color: #{$dm-brand-color};
+  --minima-brand-color-light: #{$dm-brand-color-light};
+  --minima-brand-color-dark: #{$dm-brand-color-dark};
+  --minima-site-title-color: #{$dm-site-title-color};
+  --minima-text-color: #{$dm-text-color};
+  --minima-background-color: #{$dm-background-color};
+  --minima-code-background-color: #{$dm-code-background-color};
+  --minima-link-base-color: #{$dm-link-base-color};
+  --minima-link-visited-color: #{$dm-link-visited-color};
+  --minima-link-hover-color: #{$dm-link-hover-color};
+  --minima-border-color-01: #{$dm-border-color-01};
+  --minima-border-color-02: #{$dm-border-color-02};
+  --minima-border-color-03: #{$dm-border-color-03};
+  --minima-table-text-color: #{$dm-table-text-color};
+  --minima-table-zebra-color: #{$dm-table-zebra-color};
+  --minima-table-header-bg-color: #{$dm-table-header-bg-color};
+  --minima-table-header-border: #{$dm-table-header-border};
+  --minima-table-border-color: #{$dm-table-border-color};
+}
+
+:root[data-theme="light"] {
+  @include lm-highlight;
+}
+
+:root[data-theme="dark"] {
+  @include dm-highlight;
+}
 
 html {
   scroll-behavior: smooth;
@@ -24,6 +106,7 @@ a {
 }
 
 a:focus-visible,
+button:focus-visible,
 input:focus-visible + .menu-toggle {
   outline: 2px solid $ink;
   outline-offset: 4px;
@@ -152,6 +235,24 @@ input:focus-visible + .menu-toggle {
   }
 }
 
+.theme-toggle {
+  padding: 8px 10px;
+  border: 1px solid $line;
+  border-radius: 3px;
+  background: transparent;
+  color: $muted;
+  font: inherit;
+  font-size: 11px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease;
+
+  &:hover {
+    border-color: $ink;
+    color: $ink;
+  }
+}
+
 .page-content {
   padding: 0;
 }
@@ -190,7 +291,7 @@ input:focus-visible + .menu-toggle {
 
 .eyebrow-divider {
   padding: 0 8px;
-  color: #b1b2a9;
+  color: var(--divider);
 }
 
 .hero h1,
@@ -250,7 +351,7 @@ input:focus-visible + .menu-toggle {
   bottom: 76px;
   display: flex;
   flex-direction: column;
-  color: #92958b;
+  color: var(--subtle);
   font-family: $serif;
   font-size: 13px;
   font-style: italic;
@@ -296,7 +397,7 @@ input:focus-visible + .menu-toggle {
   overflow: hidden;
   border: 1px solid $line;
   border-radius: 4px;
-  background: #fffefa;
+  background: var(--card);
   text-decoration: none;
   transition: transform .25s ease, box-shadow .25s ease;
 
@@ -505,13 +606,13 @@ input:focus-visible + .menu-toggle {
     right: calc(50% - 50vw);
     bottom: 0;
     left: calc(50% - 50vw);
-    background: $ink;
+    background: var(--footer-background);
     content: "";
   }
 }
 
 .contact-section .eyebrow {
-  color: #b6baae;
+  color: var(--footer-text);
 }
 
 .contact-content {
@@ -551,8 +652,8 @@ input:focus-visible + .menu-toggle {
 .site-footer {
   padding: 26px 0;
   border-top: 0;
-  background: $ink;
-  color: #b6baae;
+  background: var(--footer-background);
+  color: var(--footer-text);
 
   .wrapper {
     display: flex;
@@ -590,7 +691,7 @@ input:focus-visible + .menu-toggle {
     a {
       padding: 4px;
       border: 0;
-      color: #b6baae;
+      color: var(--footer-text);
     }
   }
 }
@@ -670,6 +771,8 @@ input:focus-visible + .menu-toggle {
 }
 
 .blog-page {
+  max-width: 790px;
+  margin: 0 auto;
   padding-top: 74px;
   padding-bottom: 100px;
 
@@ -730,6 +833,15 @@ input:focus-visible + .menu-toggle {
   color: $muted;
   font-size: 11px;
   letter-spacing: .04em;
+}
+
+.blog-empty {
+  max-width: 790px;
+  margin: 0;
+  padding: 28px 0;
+  border-top: 1px solid $line;
+  color: $muted;
+  font-size: 14px;
 }
 
 .post {
@@ -809,7 +921,7 @@ input:focus-visible + .menu-toggle {
 }
 
 .about-page > .contact-button {
-  background: $ink;
+  background: var(--footer-background);
   color: $lime;
 }
 
@@ -880,6 +992,10 @@ input:focus-visible + .menu-toggle {
     box-shadow: 0 14px 30px rgba(29, 33, 28, .1);
   }
 
+  .nav-links {
+    gap: 16px;
+  }
+
   .site-nav .nav-trigger:checked ~ .nav-links {
     display: flex;
     align-items: stretch;
@@ -895,6 +1011,12 @@ input:focus-visible + .menu-toggle {
   .nav-contact {
     margin-top: 5px;
     padding: 10px 12px;
+  }
+
+  .theme-toggle {
+    width: 100%;
+    margin-top: 5px;
+    text-align: left;
   }
 
   .hero {
@@ -981,6 +1103,12 @@ input:focus-visible + .menu-toggle {
   .detail-project {
     padding-top: 27px;
     padding-bottom: 29px;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 850px) {
+  .nav-links {
+    gap: 16px;
   }
 }
 
