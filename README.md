@@ -20,4 +20,4 @@ Medium can be used to cross-post writing when useful, but posts here remain on t
 
 ## Theme
 
-The site follows the device color preference by default. Use the theme toggle in the navigation to switch themes; your choice is saved in the browser.
+The site follows the device color preference by default. Use the theme icon in the navigation to choose System, Light, or Dark; your choice is saved in the browser.
