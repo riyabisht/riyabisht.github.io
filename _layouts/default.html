@@ -15,6 +15,30 @@
 
     {%- include footer.html -%}
 
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      if (themeToggle) {
+        const currentTheme = document.documentElement.dataset.theme;
+        themeToggle.setAttribute("aria-pressed", String(currentTheme === "dark"));
+        themeToggle.textContent = currentTheme === "dark" ? "Dark theme on" : "Dark theme off";
+
+        themeToggle.addEventListener("click", () => {
+          const root = document.documentElement;
+          const theme = root.dataset.theme === "dark" ? "light" : "dark";
+          root.dataset.theme = theme;
+          root.style.colorScheme = theme;
+          themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
+          themeToggle.textContent = theme === "dark" ? "Dark theme on" : "Dark theme off";
+
+          try {
+            localStorage.setItem("riyabisht-theme", theme);
+          } catch {
+            // The theme still works for this page when storage is unavailable.
+          }
+        });
+      }
+    </script>
+
   </body>
 
 </html>

@@ -9,8 +9,9 @@ description: Notes and writing by Riya Bisht.
   <p class="eyebrow">Notes and writing</p>
   <h1 class="blog-title">The blog<span class="accent-period">.</span></h1>
 
-  <div class="blog-list">
-    {% for post in site.posts %}
+  {% if site.posts.size > 0 %}
+    <div class="blog-list">
+      {% for post in site.posts %}
       <article class="blog-entry">
         <p class="blog-date">
           {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
@@ -22,6 +23,9 @@ description: Notes and writing by Riya Bisht.
         {% endif %}
         <a class="text-link" href="{{ post.url | relative_url }}">Read post <span aria-hidden="true">↗</span></a>
       </article>
-    {% endfor %}
-  </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="blog-empty">No posts yet. Please check back soon.</p>
+  {% endif %}
 </div>

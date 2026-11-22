@@ -17,3 +17,7 @@ title: A post title
 ```
 
 Medium can be used to cross-post writing when useful, but posts here remain on the portfolio site and no Medium integration is required.
+
+## Theme
+
+The site follows the device color preference by default. Use the theme toggle in the navigation to switch themes; your choice is saved in the browser.
