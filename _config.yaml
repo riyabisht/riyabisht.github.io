@@ -1,9 +1,11 @@
 title: Riya Bisht
+url: "https://riyabisht.github.io"
+baseurl: "/riya-bisht-portfolio"
 author:
   name: Riya Bisht
   email:  riyabishtformal@gmail.com
 description: > # this means to ignore newlines until "show_excerpts:"
-  Riya Bisht, bringing creativity and innovation to every project.
+  Riya Bisht is a software engineer at Amazon who builds thoughtful solutions to complex problems.
 
 show_excerpts: true # set to true to show excerpts on the homepage
 
